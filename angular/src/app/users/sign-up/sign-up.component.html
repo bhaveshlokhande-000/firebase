@@ -1,0 +1,37 @@
+<div class="container">
+    <div style=" max-width: 500px;max-height: 500px;; margin-top: 100px;border: 2px solid grey;"
+        class="flex-row flex-wrap mx-auto p-5">
+        <h3 style="text-align: center;">SignUpForm</h3>
+        <form #signUpForm="ngForm" (ngSubmit)="onSubmit(signUpForm.value)">
+            <div class="form-group">
+                <label>name</label>
+                <input type="text" class="form-control" #name="ngModel" required ngModel name="name"
+                    aria-describedby="emailHelp" placeholder="Enter name">
+                <span *ngIf="name.invalid && name.touched" style="color:red">name required</span>
+            </div>
+            <br>
+            <div class="form-group">
+                <label>Email address</label>
+                <input type="email" class="form-control" #email="ngModel"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required ngModel name="email"
+                    aria-describedby="emailHelp" placeholder="Enter email">
+                <span *ngIf="email.invalid && email.touched" style="color:red">invalid email</span>
+            </div>
+            <br>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" #password="ngModel" class="form-control" required ngModel name="password"
+                    placeholder="Password">
+                <span *ngIf="password.invalid && password.touched" style="color:red">password required</span>
+                <br>
+            </div>
+            <div class="form-group">
+                <button type="submit" [disabled]="signUpForm.invalid" class="btn btn-primary">SignUp</button>
+                &nbsp;
+                <a routerLink="" class="btn btn-primary">SignIn</a>
+                &nbsp;
+                <a href="" class="btn btn-primary" (click)="loginWithGoogle($event)">Google SignIn</a>
+            </div>
+        </form>
+    </div>
+</div>

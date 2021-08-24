@@ -1,0 +1,24 @@
+<div class="mx-auto my-2 ps-4 pb-4" style="border: 2px solid grey;">
+    <form #postForm="ngForm" (ngSubmit)="onSubmit($event)">
+        <div class="form-group">
+            <label>title</label>
+            <input type="email" class="form-control" #title="ngModel" required name="title" ngModel
+                aria-describedby="emailHelp" placeholder="Enter title">
+            <span *ngIf="title.invalid && title.touched" style="color:red">title required</span>
+        </div>
+        <br>
+        <div class="form-group">
+            <label>body</label>
+            <input type="text" class="form-control" #body="ngModel" required name="body" ngModel
+                placeholder="enter body">
+            <span *ngIf="body.invalid && body.touched" style="color:red">body required</span>
+        </div>
+        <br>
+        <div class="form-group">
+            <label>file input</label>&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="file" #image="ngModel" required ngModel name="image">
+        </div>
+        <br>
+        <button type="submit" [disabled]="postForm.invalid" class="btn btn-primary">Submit</button>
+    </form>
+</div>

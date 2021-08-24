@@ -1,0 +1,11 @@
+<app-header></app-header>
+<div class="mx-1">
+    <app-post-blog (loadBlogs)="loadBlogs()"></app-post-blog>
+    <div class="d-flex align-content-center justify-content-start flex-wrap mt-2">
+        <ng-template ngFor let-user [ngForOf]="users">
+            <ng-template ngFor let-blog [ngForOf]="user.blogArr">
+                <app-blog [name]="user.name" [blog]="blog"></app-blog>
+            </ng-template>
+        </ng-template>
+    </div>
+</div>
