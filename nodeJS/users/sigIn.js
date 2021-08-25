@@ -11,12 +11,10 @@ module.exports = function (req, res) {
             })
         })
         .catch((error) => {
-            var errorCode = error.code;
-            var errorMessage = error.message;
             console.log("signin", error)
             res.status(400).send({
                 message: "login failed",
-                error: errorMessage
+                error: error.message
             })
 
         });
