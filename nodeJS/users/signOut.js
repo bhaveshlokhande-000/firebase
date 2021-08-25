@@ -5,13 +5,14 @@ module.exports = function (req, res) {
         // Sign-out successful.
         console.log("signout", req.query)
         res.status(200).send({
-            message: "signout",
-            googleSignOut: req.query?.guid!=0 ? true : false
+            message: "signOut",
         })
 
     }).catch((error) => {
-        console.log("signout", error)
-        res.send("signout error")
+        res.send({
+            message: "signOut",
+            error:error.message
+        })
 
     });
 }
