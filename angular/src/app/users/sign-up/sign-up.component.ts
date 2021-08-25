@@ -17,7 +17,6 @@ export class SignUpComponent implements OnInit {
 
   onSubmit(data: any) {
     this.serivce.signUp(data).subscribe((result) => {
-      console.log(result)
       this.router.navigate(['allblogs'])
     }, error => {
       console.log(error)
