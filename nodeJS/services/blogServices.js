@@ -10,10 +10,10 @@ const db = admin.firestore();
 
 let id = 0
 
-async function insert(title, body, image, gid, displayName) {
+async function insert(title, body, image, guid, displayName) {
     let user = getCurrentUser()
     let uid = null
-    if (user == null) uid = gid
+    if (user == null) uid = guid
     else uid = user.uid
     const docRef = db.collection('blogs').doc(`${uid}`);
     const doc = await docRef.get();
@@ -50,10 +50,10 @@ async function getAllBlogs() {
 }
 
 
-async function getBlogs(gid) {
+async function getBlogs(guid) {
     let user = getCurrentUser()
     let uid = null
-    if (user == null) uid = gid
+    if (user == null) uid = guid
     else uid = user.uid
     const blogs = await db.collection('blogs').doc(`${uid}`).get();
     return blogs.data()
