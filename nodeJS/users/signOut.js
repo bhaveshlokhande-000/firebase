@@ -4,12 +4,12 @@ module.exports = function (req, res) {
     firebase.auth().signOut().then(() => {
         // Sign-out successful.
         res.status(200).send({
-            message: "signOut",
+            message: "signout",
         })
 
     }).catch((error) => {
         res.send({
-            message: "signOut",
+            message: "signout",
             error:error.message
         })
 
