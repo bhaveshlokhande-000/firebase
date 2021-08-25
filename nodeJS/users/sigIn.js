@@ -11,7 +11,6 @@ module.exports = function (req, res) {
             })
         })
         .catch((error) => {
-            console.log("signin", error)
             res.status(400).send({
                 message: "login failed",
                 error: error.message
