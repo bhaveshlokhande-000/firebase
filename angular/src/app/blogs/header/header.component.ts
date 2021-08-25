@@ -17,9 +17,7 @@ export class HeaderComponent implements OnInit {
   signout(event: any) {
     event.preventDefault()
     this.service.signOut().subscribe((result: any) => {
-      console.log(result)
       if (result.googleSignOut) this.service.googleSignOut()
-      console.log(result)
     }, error => {
       console.log(error)
       this.router.navigate([''])
