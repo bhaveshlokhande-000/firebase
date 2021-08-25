@@ -19,7 +19,7 @@ export class AuthService {
 
   getCurrentUser() {
     try {
-      return firebase?.auth()?.currentUser
+      return firebase.auth().currentUser
     }
     catch {
       console.log(Error)
@@ -32,7 +32,7 @@ export class AuthService {
     await this.fireAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(
       res => {
         this.router.navigate(['allblogs'])
-        console.log("login Successfull")
+ //       console.log("login Successfull")
       }
     ).catch(error => {
       this.router.navigate([''])
@@ -42,7 +42,7 @@ export class AuthService {
 
   signOutWithGoogle() {
     firebase.auth().signOut().then(function () {
-      console.log('Signed Out');
+//      console.log('Signed Out');
     }, function (error) {
       console.error('Sign Out Error', error);
     });
